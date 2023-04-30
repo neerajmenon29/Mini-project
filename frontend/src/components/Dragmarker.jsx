@@ -1,17 +1,21 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { MapContainer, Marker, Popup,  TileLayer, useMapEvents } from 'react-leaflet'
 
+
 function Dragmarker(props) {
     const [draggable, setDraggable] = useState(false)
     const [position, setPosition] = useState(props.center)
     const markerRef = useRef(null)
+
+
+  
     const eventHandlers = useMemo(
       () => ({
         dragend() {
           const marker = markerRef.current
           if (marker != null) {
             setPosition(marker.getLatLng())
-            alert(marker.getLatLng())
+
           }
         },
       }),
